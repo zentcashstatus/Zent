@@ -36,7 +36,7 @@ If you are using Clang, you will need Clang 6.0 or higher. You will also need li
 - `export CC=gcc-8`
 - `export CXX=g++-8`
 - `git clone -b master --single-branch https://github.com/ZentCash/Zent`
-- `cd zent`
+- `cd Zent`
 - `mkdir build`
 - `cd build`
 - `cmake ..`
@@ -45,7 +45,7 @@ If you are using Clang, you will need Clang 6.0 or higher. You will also need li
 The binaries will be in the `src` folder when you are complete.
 
 - `cd src`
-- `./zent --version`
+- `./zentd --version`
 
 ##### Ubuntu, using Clang
 
@@ -70,7 +70,7 @@ You need to modify the below command for your version of ubuntu - see https://ap
 - `export CC=clang-6.0`
 - `export CXX=clang++-6.0`
 - `git clone -b master --single-branch https://github.com/ZentCash/Zent`
-- `cd zent`
+- `cd Zent`
 - `mkdir build`
 - `cd build`
 - `cmake ..`
@@ -89,7 +89,7 @@ If you want to use clang, ensure you set the environment variables `CC` and `CXX
 See the ubuntu instructions for an example.
 
 - `git clone -b master --single-branch https://github.com/ZentCash/Zent`
-- `cd zent`
+- `cd Zent`
 - `mkdir build`
 - `cd build`
 - `cmake ..`
@@ -98,7 +98,7 @@ See the ubuntu instructions for an example.
 The binaries will be in the `src` folder when you are complete.
 
 - `cd src`
-- `./zent --version`
+- `./zentd --version`
 
 #### OSX/Apple, using GCC
 
@@ -113,7 +113,7 @@ The binaries will be in the `src` folder when you are complete.
 - `export CC=gcc-8`
 - `export CXX=g++-8`
 - `git clone -b master --single-branch https://github.com/ZentCash/Zent`
-- `cd zent`
+- `cd Zent`
 - `mkdir build`
 - `cd build`
 - `cmake ..`
@@ -122,7 +122,7 @@ The binaries will be in the `src` folder when you are complete.
 The binaries will be in the `src` folder when you are complete.
 
 - `cd src`
-- `./zent --version`
+- `./zentd --version`
 
 #### OSX/Apple, using Clang
 
@@ -137,7 +137,7 @@ The binaries will be in the `src` folder when you are complete.
 - `export CC=/usr/local/opt/llvm/bin/clang`
 - `export CXX=/usr/local/opt/llvm/bin/clang++`
 - `git clone -b master --single-branch https://github.com/ZentCash/Zent`
-- `cd zent`
+- `cd Zent`
 - `mkdir build`
 - `cd build`
 - `cmake ..`
@@ -146,7 +146,7 @@ The binaries will be in the `src` folder when you are complete.
 The binaries will be in the `src` folder when you are complete.
 
 - `cd src`
-- `./zent --version`
+- `./zentd --version`
 
 
 #### Windows
@@ -174,7 +174,7 @@ The binaries will be in the `src/Release` folder when you are complete.
 
 - `cd src`
 - `cd Release`
-- `zent.exe --version`
+- `zentd.exe --version`
 
 #### Raspberry Pi 3 B+ (AARCH64/ARM64)
 The following images are known to work. Your operation system image **MUST** be 64 bit.
@@ -190,7 +190,7 @@ Once you have a 64 bit image installed, setup proceeds the same as any Linux dis
 ##### Building
 
 - `git clone -b master --single-branch https://github.com/ZentCash/Zent`
-- `cd zent`
+- `cd Zent`
 - `mkdir build`
 - `cd build`
 - `cmake ..`
@@ -199,5 +199,5 @@ Once you have a 64 bit image installed, setup proceeds the same as any Linux dis
 The binaries will be in the `src` folder when you are complete.
 
 - `cd src`
-- `./zent --version`
+- `./zentd --version`
 
