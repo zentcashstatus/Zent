@@ -39,7 +39,7 @@ deploy:
     tag: $(APPVEYOR_REPO_TAG_NAME)
     release: $(APPVEYOR_REPO_TAG_NAME)
     auth_token:
-      secure: HTw79Iizhy3FZaWMI6iPzvK+4m3QDspSp0WjGnt4Ws52HjazYzhms4MHIsK1z58k
+      secure: jBvnZ4QuRrEdlVpfSSrUBL2X+2uXGSNeCDYKXVFzwGU1IlKmCUMY5hG38KATTXOM
     repository: ZentCashFoundation/Zent
     artifact: ZentCashRelease
     draft: false
