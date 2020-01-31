@@ -134,7 +134,7 @@ deploy:
       secure: nWTec1yTZEjPmfikN2OFWiAVkLdH2OjhKYQ7yOknl/CBIkLEWolvAA6mxoGIx8Vi9KGh2NV3hpQG8bHylMwJL4Eq+VT9SVCoG+1J3pFHpTVllHzVi05D24aA7YTTk+Dc4Oto1rZLORBL/yfOzQA/y5RLOfm77CxB2SdiWKF396nxs4shVSjjduAVpG98oATd+L+BJCU5aMn4D+27h8avNZgfRDXWm73ij3oQZsHJkqKGU2DF5kUQvtFOKOkF0GfEUdP30jjqs/res9YJc3q233K2wa6TmIc13owhYyUP122wETo9QoHx+B7WUwdFLSiCfUfolxN1O6nt8xAc/9GDr9UBpD8g4Mu4txuhXEFrxwxI45Bg0JrbpNk/ouc68fNYaKKRoR5sSvubkvdqEajJJr60Jy9Uy9t7jTyvKMAfXQ+gDkDM9J5k+CKlMtbK/4wd/Ni305KvEvka6juyJPj/VaDoBpcOzvI/3OoN/J/dPd3blX0MK6tOOEne3Xnq0OvM0bDC8Eh+DrWPpD89V2M3onaUauDlgmFIWBzka/7xE5JpYszg2qQH9c3bXv170ReWm2kTWzbphDCbwbAUoXHI1MCQBaq8UuvXra8SL1ngsdpJiDG67vTBCiIhjLw39/6KtcNP7bK0w6zU7C53XQjOtTHSeZKTyuxq2qdC1YabB+g=
     file:
       - ZentCash-${TRAVIS_TAG}-${LABEL}.tar.gz
-    skip_cleanup: true  
+    skip_cleanup: true
     on:
       repo: ZentCashFoundation/Zent
       tags: true

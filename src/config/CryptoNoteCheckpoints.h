@@ -1,5 +1,4 @@
 // Copyright (c) 2012-2017, The CryptoNote developers, The Bytecoin developers
-// Copyright (c) 2019, The Zent Cash project
 //
 // This file is part of Bytecoin.
 //
@@ -27,7 +26,7 @@ struct CheckpointData {
   const char* blockId;
 };
 
-const std::initializer_list<CheckpointData> CHECKPOINTS = {   
+const std::initializer_list<CheckpointData> CHECKPOINTS = {  
 {0, "7c02559783a46e9401a1539cc90571f29b3f1cf231f5fea6b8fbbe09a16a4f29"}, 
 {2, "b551967e99b7916e566ea92ca249281b0dc6304aa0be3844625698f46282a323"}, 
 {1000, "952e1f2c7df6c64c0cfa9249edd893932ff8388db262ded9c93326bb2908bd5c"},
@@ -508,5 +507,5 @@ const std::initializer_list<CheckpointData> CHECKPOINTS = {
 {476000, "5329f559be54e44739c93c4fcdefa576932758e1195a7c211c45936a3d5a0e79"},
 {477000, "1b4873a5f059233b640ea1c2bd086d8afdb1818356e1f6b490f8ba315a8a1e01"},
 {478000, "c1f032d1abf9447b2c4dc163042ac667e097b1edaf501ebb7b04db36349c8378"}
-}; 
-} 
+};
+}
