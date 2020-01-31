@@ -72,7 +72,11 @@ matrix:
     - LABEL="osx-10.14+"
     - _DEPLOYABLE="true"
     - STRIP="strip"
-
+    addons:
+      apt:
+        packages:
+          - libboost-all-dev
+          
   # Arm (aarch64) cross compile
   - os: linux
     dist: trusty
