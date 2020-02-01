@@ -1,6 +1,7 @@
 // Copyright (c) 2012-2017, The CryptoNote developers, The Bytecoin developers
 // Copyright (c) 2014-2018, The Monero Project
 // Copyright (c) 2018-2019, The TurtleCoin Developers
+// Copyright (c) 2019-2020, The Zent Cash Developers
 //
 // Please see the included LICENSE file for more information.
 
@@ -171,12 +172,25 @@ static_assert(UPGRADE_VOTING_WINDOW > 1, "Bad UPGRADE_VOTING_WINDOW");
 /* Block heights we are going to have hard forks at */
 const uint64_t FORK_HEIGHTS[] =
 {
-    3,  // 0
-    450000,  // 1
+    0,        //  0 -  Zawy Difficulty Block Index, Mixin Limits V1 Height
+    1,        //  1 -  Upgrade Height V2 CN-Classic, Lwma 2 Difficulty Block Index
+    2,        //  2 -  Upgrade Height V3 CN-Classic, Lwma 2 Difficulty Block Index V2, Zawy Difficulty V2
+    3,        //  3 -  Upgrade Height V4 CN-Lite, Lwma 2 Difficulty Block Index V3
+    11000,    //  4 -  Mixin Limits Height V2
+    150000,   //  5 -  Mixin Limits Height V3
+    450000,   //  6 -  Upgrade Height V5 CN-Turtle
+    800000,   //  7 -  Fusion Dust Threshold V2 Height
+    1000000,  //  8 -  Free Space
+    1300000,  //  9 -  Max Extra Size V2 Height
+    1400000,  //  10 - Transation Signature Count Validation Height
+    1600000,  //  11 - Block Blob Shuffle Check Height, Transaction Input Blocktime Validation Height
+    1800000,  //  12 - Free Space
+    2000000,  //  13 - Free Space
+
 };
 
 /* MAKE SURE TO UPDATE THIS VALUE WITH EVERY MAJOR RELEASE BEFORE A FORK */
-const uint64_t SOFTWARE_SUPPORTED_FORK_INDEX                 = 1;
+const uint64_t SOFTWARE_SUPPORTED_FORK_INDEX                 = 7;
 
 const uint64_t FORK_HEIGHTS_SIZE = sizeof(FORK_HEIGHTS) / sizeof(*FORK_HEIGHTS);
 
