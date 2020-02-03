@@ -58,7 +58,7 @@ const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(30000000
 --print-genesis-tx --genesis-block-reward-address <premine wallet address>
 
 For example:
-TurtleCoind --print-genesis-tx --genesis-block-reward-address TRTLv2Fyavy8CXG8BPEbNeCHFZ1fuDCYCZ3vW5H5LXN4K2M2MHUpTENip9bbavpHvvPwb4NDkBWrNgURAd5DB38FHXWZyoBh4wW
+Zentd --print-genesis-tx --genesis-block-reward-address ZeLv2Fyavy8CXG8BPEbNeCHFZ1fuDCYCZ3vW5H5LXN4K2M2MHUpTENip9bbavpHvvPwb4NDkBWrNgURAd5DB38FHXWZyoBh4wW
 
 * Take the hash printed, and replace it with the hash below in GENESIS_COINBASE_TX_HEX
 
@@ -101,7 +101,7 @@ const uint32_t MIXIN_LIMITS_V1_HEIGHT                        = 0;
 const uint32_t MIXIN_LIMITS_V2_HEIGHT                        = 11000;
 const uint32_t MIXIN_LIMITS_V3_HEIGHT                        = 150000;
 
-/* The mixin to use by default with zedwallet and turtle-service */
+/* The mixin to use by default with zentwallet and zent-service */
 /* DEFAULT_MIXIN_V0 is the mixin used before MIXIN_LIMITS_V1_HEIGHT is started */
 const uint64_t DEFAULT_MIXIN_V0                              = 0;
 const uint64_t DEFAULT_MIXIN_V1                              = MAXIMUM_MIXIN_V1;
