@@ -277,7 +277,7 @@ const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 };
 
 const char* const SEED_NODES[] = {
-  "95.216.169.11:21688",
-  "95.216.191.56:21688",
+  "95.216.169.11:21688", // seedpro1.zent.cash
+  "95.216.191.56:21688", // seedpro2.zent.cash
 };
 } // CryptoNote
