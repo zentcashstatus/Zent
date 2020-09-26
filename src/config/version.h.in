@@ -6,7 +6,7 @@
 #define PROJECT_COPYRIGHT "Copyright 2019-2020, The Zent Cash Developers"
 #define APP_VER_MAJOR 1
 #define APP_VER_MINOR 14
-#define APP_VER_REV 6
+#define APP_VER_REV 7
 #define APP_VER_BUILD 1286
 
 #define BUILD_COMMIT_ID "@VERSION@"
