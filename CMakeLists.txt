@@ -94,10 +94,10 @@ if(DEFINED ENV{LABEL})
   message(STATUS "Found LABEL: ${LABEL}")
 endif()
 
-## We only build static binaries -- this is left here for our dependencies
+# We only build static binaries -- this is left here for our dependencies
 set(STATIC ON CACHE BOOL FORCE "Link libraries statically? Forced to ON")
 
-## This section helps us tag our builds with the git commit information
+# This section helps us tag our builds with the git commit information
 set(COMMIT_ID_IN_VERSION ON CACHE BOOL "Include commit ID in version")
 
 # So we can use std::string with rapidjson
