@@ -6,7 +6,7 @@ services:
     ports:
     - "21698:21698"
     - "21699:21699"
-	  - "21688:21688"
+    - "21688:21688"
     restart: on-failure
     volumes:
        - ./data:/var/lib/Zentd
