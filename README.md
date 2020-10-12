@@ -8,7 +8,7 @@
 ![Version](https://img.shields.io/github/v/release/ZentCashFoundation/Zent)
 
 ### Master Build Status
-![Build](https://github.com/ZentCashDevelopers/Zent/workflows/Build/badge.svg)
+![Build](https://github.com/ZentCashFoundation/Zent/workflows/Build/badge.svg)
 
 ### Installing
 
