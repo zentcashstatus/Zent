@@ -223,7 +223,7 @@ jobs:
 
       - name: Install OpenSSL
         run: choco install openssl
-        
+
       # Install boost
       - name: Install Boost 1.69.0
         run: |
@@ -232,7 +232,6 @@ jobs:
           [Net.WebClient]::new().DownloadFile($link, $path)
           Start-Process C:\boost.exe -ArgumentList "/DIR=C:\local\boost_1_69_0","/VERYSILENT" -Wait
           Get-ChildItem C:\local\boost_1_69_0
-
       # Configure project with cmake
       - name: Configure
         run: |
@@ -246,6 +245,7 @@ jobs:
           $env:PATH = "$env:PATH;$env:MSBUILD_PATH"
           cd build
           MSBuild ZentCash.sln /p:CLToolExe=clcache.exe /p:Configuration=Release /p:PlatformToolset=v141 /m
+
       # Test the crypto
       - name: Test Crypto
         shell: bash
