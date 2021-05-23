@@ -227,7 +227,7 @@ jobs:
       # Install boost
       - name: Install Boost 1.69.0
         run: |
-          $link = "https://master.dl.sourceforge.net/project/boost/boost-binaries/1.69.0/boost_1_69_0-msvc-11.0-64.exe?viasf=1"
+          $link = "https://boost.teeks99.com/bin/1.69.0/boost_1_69_0-msvc-14.1-64.exe"
           $path = "C:\boost.exe"
           [Net.WebClient]::new().DownloadFile($link, $path)
           Start-Process C:\boost.exe -ArgumentList "/DIR=C:\local\boost_1_69_0","/VERYSILENT" -Wait
