@@ -4,11 +4,12 @@
 
 #pragma once
 
+#include <optional>
+
 #include <config/CryptoNoteConfig.h>
+#include <logger/Logger.h>
 
-#include <Logger/Logger.h>
-
-struct Config
+struct ZedConfig
 {
     /* Was the wallet file specified on CLI */
     bool walletGiven = false;
@@ -18,7 +19,7 @@ struct Config
 
     /* The daemon host */
     std::string host;
-    
+
     /* The daemon port */
     uint16_t port = CryptoNote::RPC_DEFAULT_PORT;
 
@@ -29,10 +30,15 @@ struct Config
     std::string walletPass;
 
     /* Controls what level of messages to log */
-    Logger::LogLevel logLevel = Logger::DISABLED;
-    
+    Logger::LogLevel logLevel = Logger::FATAL;
+
+    /* Optionally log to a file */
+    std::optional<std::string> loggingFilePath;
+
     /* Use SSL with daemon */
     bool ssl = false;
+
+    unsigned int threads;
 };
 
-Config parseArguments(int argc, char **argv);
+ZedConfig parseArguments(int argc, char **argv);
