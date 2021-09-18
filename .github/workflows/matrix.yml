@@ -4,6 +4,8 @@ on:
   pull_request:
   release:
     types: [published]
+  schedule:
+    - cron: '30 3 * * 0'
 
 env:
   TAG: ${{ github.ref }}
@@ -79,7 +81,7 @@ jobs:
           cmake -DARCH=default -DCMAKE_BUILD_TYPE=Release -DSTATIC=true ..
           make -j2
           cd src
-          TARGETS="Zentd miner zentwallet zentwallet-beta cryptotest Zent-service wallet-api"
+          TARGETS="Zentd miner zentwallet cryptotest Zent-service wallet-api wallet-upgrader"
           ${STRIP} ${TARGETS}
       # Test the crypto
       - name: Test Crypto
@@ -95,7 +97,7 @@ jobs:
         run: |
           if [[ "${TAG:5:4}" == "tags" ]]; then export TAG=${TAG:10}; else export TAG=${COMMIT_SHA}; fi
           cd build/src
-          TARGETS="Zentd miner zentwallet zentwallet-beta cryptotest Zent-service wallet-api"
+          TARGETS="Zentd miner zentwallet cryptotest Zent-service wallet-api wallet-upgrader"
           if [[ "${LABEL}" != "aarch64" ]]; then strip ${TARGETS}; fi
           rm -rf ZentCash-${TAG}
           mkdir ZentCash-${TAG}
@@ -173,7 +175,7 @@ jobs:
         run: |
           if [[ "${TAG:5:4}" == "tags" ]]; then export TAG=${TAG:10}; else export TAG=${COMMIT_SHA}; fi
           cd build/src
-          TARGETS="Zentd miner zentwallet zentwallet-beta cryptotest Zent-service wallet-api"
+          TARGETS="Zentd miner zentwallet cryptotest Zent-service wallet-api wallet-upgrader"
           strip ${TARGETS}
           rm -rf ZentCash-${TAG}
           mkdir ZentCash-${TAG}
