@@ -1,4 +1,4 @@
-// Copyright (c) 2019, The TurtleCoin Developers
+// Copyright (c) 2021, The Zent Cash Developers
 //
 // Please see the included LICENSE file for more information.
 
@@ -158,7 +158,7 @@ int main(int argc, char **argv)
         {
             std::cout << SuccessMsg("Done!") << std::endl;
 
-            std::cout << InformationMsg("You can now open your wallet in proton, zedwallet-beta or wallet-api.") << std::endl;
+            std::cout << InformationMsg("You can now open your wallet in zentcash wallet, zentwallet or wallet-api.") << std::endl;
             break;
         }
         else
