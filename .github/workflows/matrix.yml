@@ -14,7 +14,7 @@ jobs:
   # Common Build matrix for builds on Ubuntu VM
   ubuntu_build:
     name: ${{ matrix.build_name }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
       matrix:
@@ -129,7 +129,7 @@ jobs:
   # Mac builds on Catalina VM
   macos_build:
     name: macOS
-    runs-on: macos-latest
+    runs-on: macos-10.15
     env:
       CC: /usr/local/opt/llvm@8/bin/clang
       CXX: /usr/local/opt/llvm@8/bin/clang++
@@ -207,7 +207,7 @@ jobs:
   # Windows Builds on Windows Server 2019
   windows_build:
     name: Windows
-    runs-on: windows-latest
+    runs-on: windows-2019
     env:
       MSBUILD_PATH: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/MSBuild/Current/Bin"
       LABEL: windows
