@@ -1719,7 +1719,7 @@ namespace CryptoNote
 
             stream << "Failed to get any matching outputs for amount " << amount << " ("
                    << Utilities::formatAmount(amount) << "). Further explanation here: "
-                   << "https://gist.github.com/zpalmtree/80b3e80463225bcfb8f8432043cb594c\n"
+                   << "https://gist.github.com/ZentCashDevelopers/a0e0006d682e6e64fcc984bb1c2f7d8e\n"
                    << "Note: If you are a public node operator, you can safely ignore this message. "
                    << "It is only relevant to the user sending the transaction.";
 
