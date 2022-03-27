@@ -3,10 +3,10 @@
 
 #define PROJECT_NAME "ZentCash"
 #define PROJECT_SITE "https://www.zent.cash"
-#define PROJECT_COPYRIGHT "Copyright 2019-2021, The Zent Cash Developers"
+#define PROJECT_COPYRIGHT "Copyright 2019-2022, The Zent Cash Developers"
 #define APP_VER_MAJOR 1
 #define APP_VER_MINOR 26
-#define APP_VER_REV 1
+#define APP_VER_REV 2
 #define APP_VER_BUILD 1301
 
 #define BUILD_COMMIT_ID "@VERSION@"
