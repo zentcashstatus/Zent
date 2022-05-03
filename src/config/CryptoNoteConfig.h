@@ -106,7 +106,7 @@ namespace CryptoNote
 
         const uint64_t MAXIMUM_MIXIN_V2 = 3;
 
-        const uint64_t MINIMUM_MIXIN_V3 = 3;
+        const uint64_t MINIMUM_MIXIN_V3 = 1;
 
         const uint64_t MAXIMUM_MIXIN_V3 = 3;
 
