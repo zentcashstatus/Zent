@@ -4,9 +4,7 @@ on:
   pull_request:
   release:
     types: [published]
-  schedule:
-    - cron: '30 3 * * 0'
-
+ 
 env:
   TAG: ${{ github.ref }}
 
@@ -129,7 +127,7 @@ jobs:
   # Mac builds on Catalina VM
   macos_build:
     name: macOS
-    runs-on: macos-10.15
+    runs-on: macOS-10.15
     env:
       CC: /usr/local/opt/llvm@8/bin/clang
       CXX: /usr/local/opt/llvm@8/bin/clang++
@@ -141,6 +139,7 @@ jobs:
       # Fetch Dependencies
       - name: Dependencies
         run: |
+          brew uninstall llvm
           brew install --force boost llvm@8 ccache
           brew link --overwrite llvm@8
           ln -s /usr/local/opt/llvm@8 /usr/local/opt/llvm
@@ -203,7 +202,6 @@ jobs:
           name: ${{ steps.before_deploy.outputs.artifact_name }}
           path: ./build/src/${{ steps.before_deploy.outputs.binary_path }}
 
-  # Windows Builds on Windows Server 2019
   windows_build:
     name: Windows
     runs-on: windows-2019
@@ -226,27 +224,26 @@ jobs:
         run: choco install openssl
 
       # Install boost
-      - name: Install Boost 1.69.0
+      - name: Install Boost 1.78.0
         run: |
-          $link = "https://boost.teeks99.com/bin/1.69.0/boost_1_69_0-msvc-14.1-64.exe"
+          $link = "https://boost.teeks99.com/bin/1.78.0/boost_1_78_0-msvc-14.2-64.exe"
           $path = "C:\boost.exe"
           [Net.WebClient]::new().DownloadFile($link, $path)
-          Start-Process C:\boost.exe -ArgumentList "/DIR=C:\local\boost_1_69_0","/VERYSILENT" -Wait
-          Get-ChildItem C:\local\boost_1_69_0
+          Start-Process C:\boost.exe -ArgumentList "/DIR=C:\local\boost_1_78_0","/VERYSILENT" -Wait
+          Get-ChildItem C:\local\boost_1_78_0
       # Configure project with cmake
       - name: Configure
         run: |
           mkdir build
           cd build
-          cmake -G "Visual Studio 16 2019" -A x64 .. -DARCH=default -DBOOST_ROOT=C:/local/boost_1_69_0
+          cmake -G "Visual Studio 16 2019" -A x64 .. -DARCH=default -DBOOST_ROOT=C:/local/boost_1_78_0
       # Build for Windows
       - name: Build
         run: |
           $env:CLCACHE_DIR = "$env:GITHUB_WORKSPACE\clcache"
           $env:PATH = "$env:PATH;$env:MSBUILD_PATH"
           cd build
-          MSBuild ZentCash.sln /p:CLToolExe=clcache.exe /p:Configuration=Release /p:PlatformToolset=v141 /m
-
+          MSBuild ZentCash.sln /p:Configuration=Release /p:PlatformToolset=v142 /m
       # Test the crypto
       - name: Test Crypto
         shell: bash
