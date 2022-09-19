@@ -371,7 +371,7 @@ namespace CryptoNote
     const uint64_t LEVELDB_MAX_OPEN_FILES = 128; // 128 files
     const uint64_t LEVELDB_MAX_FILE_SIZE_MB = 1024; // 1024MB = 1GB
 
-    const char LATEST_VERSION_URL[] = "http://latest.zent.cash";
+    const char LATEST_VERSION_URL[] = "https://github.com/ZentCashFoundation/Zent/releases";
 
     const std::string LICENSE_URL = "https://github.com/ZentCashFoundation/Zent/blob/master/LICENSE";
 
@@ -381,11 +381,7 @@ namespace CryptoNote
     const char *const SEED_NODES[] = {
         "95.216.169.11:21688", // seedpro1.zent.cash
         "95.216.191.56:21688", // seedpro2.zent.cash
-        "seedpro1.zent.cash:21688", // seedpro1.zent.cash
-        "seedpro2.zent.cash:21688", // seedpro2.zent.cash
-        "seedpro3.zent.cash:21688", // seedpro3.zent.cash
-        "seedpro4.zent.cash:21688", // seedpro4.zent.cash
-        "seedpro5.zent.cash:21688", // seedpro5.zent.cash
+        "78.47.228.221:21688", // seedpro3.zent.cash
         "superblockchain.con-ip.com:21688", // superblockchain.con-ip.com
 	"superblockchain.zapto.org:21688", // superblockchain.zapto.org
 	"superblockchain.con-ip.com:21597", // superblockchain.con-ip.com ARM
