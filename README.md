@@ -21,8 +21,11 @@ For anyone else wishing to help the community or who needs answers to questions 
 
 ### Zent Cash Build Branches
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/ZentCashFoundation/Zent/Build/master) **Master**
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/ZentCashFoundation/Zent/Build/dev) **Development**
+**Master**
+[![Build](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml/badge.svg?branch=master)](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml)
+
+**Development**
+[![Build](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml/badge.svg?branch=dev)](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml)
 
 ### Installing Zent Cash
 
@@ -43,7 +46,7 @@ See [src/config/CryptoNoteConfig.h](https://github.com/ZentCashFoundation/Zent/b
 // Copyright (c) 2012-2017, The CryptoNote developers, The Bytecoin developers
 // Copyright (c) 2014-2018, The Monero Project
 // Copyright (c) 2018-2020, The TurtleCoin Developers
-// Copyright (c) 2019-2021, The Zent Cash Developers
+// Copyright (c) 2019-2023, The Zent Cash Developers
 //
 // Please see the included LICENSE file for more information.
 ```
