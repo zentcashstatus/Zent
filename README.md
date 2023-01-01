@@ -21,10 +21,12 @@ For anyone else wishing to help the community or who needs answers to questions 
 
 ### Zent Cash Build Branches
 
-**Master**
+#### **Master**
+
 [![Build](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml/badge.svg?branch=master)](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml)
 
-**Development**
+#### **Development**
+
 [![Build](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml/badge.svg?branch=dev)](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml)
 
 ### Installing Zent Cash
