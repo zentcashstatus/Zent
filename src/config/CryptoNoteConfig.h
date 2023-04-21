@@ -382,8 +382,8 @@ namespace CryptoNote
         "95.216.169.11:21688", // seedpro1.zent.cash
         "95.216.191.56:21688", // seedpro2.zent.cash
         "78.47.228.221:21688", // seedpro3.zent.cash
-        "superblockchain.con-ip.com:21688", // superblockchain.con-ip.com
-	"superblockchain.zapto.org:21688", // superblockchain.zapto.org
+        "superblockchain.con-ip.com:19051", // superblockchain.con-ip.com
+	"superblockchain.zapto.org:19051", // superblockchain.zapto.org
 	"superblockchain.con-ip.com:21597", // superblockchain.con-ip.com ARM
         "superblockchain.zapto.org:21597", // superblockchain.zapto.org ARM
     };

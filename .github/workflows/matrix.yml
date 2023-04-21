@@ -12,26 +12,32 @@ jobs:
   # Common Build matrix for builds on Ubuntu VM
   ubuntu_build:
     name: ${{ matrix.build_name }}
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
         # Add more compilers here if you need them
-        build_name: ['Ubuntu GCC 7', 'Ubuntu GCC 8', 'aarch64']
+        build_name: ['Ubuntu 20.04 - GCC 7', 'Ubuntu 20.04 - GCC 8', 'Ubuntu 20.04 - Clang 11', 'Ubuntu 20.04 - aarch64']
         include:
-          - build_name: 'Ubuntu GCC 7'
+          - build_name: 'Ubuntu 20.04 - GCC 7'
             package_name: 'gcc-7 g++-7'
             cc: gcc-7
             cxx: g++-7
-            label: linux-gcc-7
+            label: ubuntu-20.04-linux-gcc-7
             deployable: false
-          - build_name: 'Ubuntu GCC 8'
+          - build_name: 'Ubuntu 20.04 - GCC 8'
             package_name: 'gcc-8 g++-8'
             cc: gcc-8
             cxx: g++-8
             label: linux
             deployable: true
-          - build_name: 'aarch64'
+          - build_name: 'Ubuntu 20.04 - Clang 11'
+            package_name: 'clang-11'
+            cc: clang-11
+            cxx: clang++-11
+            label: ubuntu-20.04-linux-clang-11
+            deployable: false
+          - build_name: 'Ubuntu 20.04 - aarch64'
             label: aarch64
             deployable: true
     env:
@@ -53,11 +59,11 @@ jobs:
         uses: actions/cache@v1
         with:
           path: .ccache
-          key: ccache-${{ matrix.label }}
-
-      # Configure the project with cmake
+          key: ccache-${{ matrix.label }}    
+     
+     # Configure the project with cmake
       - name: Configure
-        if: matrix.build_name != 'aarch64'
+        if: matrix.build_name != 'Ubuntu 20.04 - aarch64'
         env:
           CC: ${{ matrix.cc }}
           CXX: ${{ matrix.cxx }}
@@ -66,13 +72,13 @@ jobs:
           cmake -DARCH=default -DCMAKE_BUILD_TYPE=Release -DSTATIC=true ..
       # Build for linux
       - name: Build
-        if: matrix.build_name != 'aarch64'
+        if: matrix.build_name != 'Ubuntu 20.04 - aarch64'
         run: |
           cd build
-          make -j2
+          make 
       # Build for aarch64
-      - name: Prepare and Build (aarch64)
-        if: matrix.build_name == 'aarch64'
+      - name: Prepare and Build (Ubuntu 20.04 - aarch64)
+        if: matrix.build_name == 'Ubuntu 20.04 - aarch64'
         run: |
           source scripts/prep-aarch64.sh
           mkdir build && cd build
@@ -83,10 +89,11 @@ jobs:
           ${STRIP} ${TARGETS}
       # Test the crypto
       - name: Test Crypto
-        if: matrix.build_name != 'aarch64'
+        if: matrix.build_name != 'Ubuntu 20.04 - aarch64'
         run: |
           cd build/src
-          ./cryptotest
+          ./cryptotest      
+            
       # Prepare for deploy
       - name: Prepare for Deploy
         id: before_deploy
@@ -102,9 +109,7 @@ jobs:
           cp ${TARGETS} ZentCash-${TAG}/
           cp ../../LICENSE ZentCash-${TAG}/
           tar cvfz ZentCash-${TAG}-${LABEL}.tar.gz ZentCash-${TAG}/
-          echo ::set-output name=binary_path::ZentCash-${TAG}
-          echo ::set-output name=artifact_name::ZentCash-${TAG}-${LABEL}
-          echo ::set-output name=file_name::ZentCash-${TAG}-${LABEL}.tar.gz
+          ls -la
       # Upload to GH Release
       - name: Upload to GH Release
         if: github.event_name == 'release' && matrix.deployable
@@ -113,16 +118,131 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./build/src/${{ steps.before_deploy.outputs.file_name }}
-          asset_name: ${{ steps.before_deploy.outputs.file_name }}
+          asset_path: ./build/src/ZentCash-${{ github.event.release.tag_name }}-${{ env.LABEL }}.tar.gz
+          asset_name: ZentCash-${{ github.event.release.tag_name }}-${{ env.LABEL }}.tar.gz
           asset_content_type: application/gzip
 
       # Upload to GH Actions Artifacts
       - name: Upload To GH Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ steps.before_deploy.outputs.artifact_name }}
-          path: ./build/src/${{ steps.before_deploy.outputs.binary_path }}
+          name: ZentCash-${{ github.sha }}-${{ env.LABEL }}
+          path: ./build/src/ZentCash-${{ github.sha }}
+          
+  # Common Build matrix for builds on Ubuntu Lasted VM       
+  ubuntu_now_build:
+    name: ${{ matrix.build_name }}
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        # Add more compilers here if you need them
+        build_name: ['Ubuntu 22.04 - GCC 11', 'Ubuntu 22.04 - Clang 11', 'Ubuntu 22.04 - aarch64']
+        include:
+          - build_name: 'Ubuntu 22.04 - GCC 11'
+            package_name: 'gcc-11 g++-11'
+            cc: gcc-11
+            cxx: g++-11
+            label: ubuntu-22.04-linux
+            deployable: false
+          - build_name: 'Ubuntu 22.04 - Clang 11'
+            package_name: 'clang-11'
+            cc: clang-11
+            cxx: clang++-11
+            label: ubuntu-22.04-linux-clang-11
+            deployable: true
+          - build_name: 'Ubuntu 22.04 - aarch64'
+            label: aarch64
+            deployable: false
+    env:
+      CCACHE_DIR: $GITHUB_WORKSPACE/.ccache
+      LABEL: ${{ matrix.label }}
+    steps:
+      - uses: actions/checkout@v2
+
+      # Fetch Dependencies
+      - name: Dependencies
+        if: matrix.build_name != 'Ubuntu 22.04 - aarch64'
+        run: |
+          sudo apt update
+          sudo apt upgrade
+          sudo apt install -y libboost-all-dev libssl-dev ${{ matrix.package_name }}
+      - name: Setup ccache
+        run: |
+          sudo apt install ccache
+      - name: Retrieve ccache
+        uses: actions/cache@v1
+        with:
+          path: .ccache
+          key: ccache-${{ matrix.label }}     
+     
+     # Configure the project with cmake
+      - name: Configure
+        if: matrix.build_name != 'Ubuntu 22.04 - aarch64'
+        env:
+          CC: ${{ matrix.cc }}
+          CXX: ${{ matrix.cxx }}
+        run: |
+          mkdir build && cd build
+          cmake -DARCH=default -DCMAKE_BUILD_TYPE=Release -DSTATIC=true ..
+      # Build for linux
+      - name: Build
+        if: matrix.build_name != 'Ubuntu 22.04 - aarch64'
+        run: |
+          cd build
+          make 
+      # Build for aarch64
+      - name: Prepare and Build (aarch64)
+        if: matrix.build_name == 'Ubuntu 22.04 - aarch64'
+        run: |
+          source scripts/prep-aarch64.sh
+          mkdir build && cd build
+          cmake -DARCH=default -DCMAKE_BUILD_TYPE=Release -DSTATIC=true ..
+          make -j2
+          cd src
+          TARGETS="Zentd miner zentwallet cryptotest Zent-service wallet-api wallet-upgrader"
+          ${STRIP} ${TARGETS}
+      # Test the crypto
+      - name: Test Crypto
+        if: matrix.build_name != 'Ubuntu 22.04 - aarch64' && matrix.build_name != 'Ubuntu 22.04 - GCC 11'
+        run: |
+          cd build/src
+          ./cryptotest      
+            
+      # Prepare for deploy
+      - name: Prepare for Deploy
+        id: before_deploy
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          if [[ "${TAG:5:4}" == "tags" ]]; then export TAG=${TAG:10}; else export TAG=${COMMIT_SHA}; fi
+          cd build/src
+          TARGETS="Zentd miner zentwallet cryptotest Zent-service wallet-api wallet-upgrader"
+          if [[ "${LABEL}" != "aarch64" ]]; then strip ${TARGETS}; fi
+          rm -rf ZentCash-${TAG}
+          mkdir ZentCash-${TAG}
+          cp ${TARGETS} ZentCash-${TAG}/
+          cp ../../LICENSE ZentCash-${TAG}/
+          tar cvfz ZentCash-${TAG}-${LABEL}.tar.gz ZentCash-${TAG}/
+          ls -la
+      # Upload to GH Release
+      - name: Upload to GH Release
+        if: github.event_name == 'release' && matrix.deployable
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./build/src/ZentCash-${{ github.event.release.tag_name }}-${{ env.LABEL }}.tar.gz
+          asset_name: ZentCash-${{ github.event.release.tag_name }}-${{ env.LABEL }}.tar.gz
+          asset_content_type: application/gzip
+
+      # Upload to GH Actions Artifacts
+      - name: Upload To GH Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ZentCash-${{ github.sha }}-${{ env.LABEL }}
+          path: ./build/src/ZentCash-${{ github.sha }}       
 
   # Mac builds on Catalina VM
   macos_build:
@@ -180,9 +300,7 @@ jobs:
           cp ${TARGETS} ZentCash-${TAG}/
           cp ../../LICENSE ZentCash-${TAG}/
           tar cvfz ZentCash-${TAG}-${LABEL}.tar.gz ZentCash-${TAG}/
-          echo ::set-output name=binary_path::ZentCash-${TAG}
-          echo ::set-output name=artifact_name::ZentCash-${TAG}-${LABEL}
-          echo ::set-output name=file_name::ZentCash-${TAG}-${LABEL}.tar.gz
+
       # Upload to GH Release
       - name: Upload to GH Release
         if: github.event_name == 'release'
@@ -191,16 +309,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./build/src/${{ steps.before_deploy.outputs.file_name }}
-          asset_name: ${{ steps.before_deploy.outputs.file_name }}
+          asset_path: ./build/src/ZentCash-${{ github.event.release.tag_name }}-${{ env.LABEL }}.tar.gz
+          asset_name: ZentCash-${{ github.event.release.tag_name }}-${{ env.LABEL }}.tar.gz
           asset_content_type: application/gzip
 
       # Upload to GH Actions Artifacts
       - name: Upload To GH Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ steps.before_deploy.outputs.artifact_name }}
-          path: ./build/src/${{ steps.before_deploy.outputs.binary_path }}
+          name: ZentCash-${{ github.sha }}-${{ env.LABEL }}
+          path: ./build/src/ZentCash-${{ github.sha }}
 
   windows_build:
     name: Windows
@@ -264,9 +382,7 @@ jobs:
           cp *.exe ZentCash-${TAG}/
           cp ../../../LICENSE ZentCash-${TAG}/
           7z a ZentCash-${TAG}-${LABEL}.zip ZentCash-${TAG}/
-          echo ::set-output name=binary_path::ZentCash-${TAG}
-          echo ::set-output name=artifact_name::ZentCash-${TAG}-${LABEL}
-          echo ::set-output name=file_name::ZentCash-${TAG}-${LABEL}.zip
+
       # Upload to GH Release
       - name: Upload to GH Release
         if: github.event_name == 'release'
@@ -275,13 +391,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./build/src/Release/${{ steps.before_deploy.outputs.file_name }}
-          asset_name: ${{ steps.before_deploy.outputs.file_name }}
+          asset_path: ./build/src/Release/ZentCash-${{ github.event.release.tag_name }}-${{ env.LABEL }}.zip
+          asset_name: ZentCash-${{ github.event.release.tag_name }}-${{ env.LABEL }}.zip
           asset_content_type: application/zip
 
       # Upload to GH Actions Artifacts
       - name: Upload To GH Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ steps.before_deploy.outputs.artifact_name }}
-          path: ./build/src/Release/${{ steps.before_deploy.outputs.binary_path }}
+          name: ZentCash-${{ github.sha }}-${{ env.LABEL }}
+          path: ./build/src/Release/ZentCash-${{ github.sha }}

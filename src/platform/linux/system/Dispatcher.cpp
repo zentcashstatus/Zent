@@ -8,6 +8,7 @@
 #include "ErrorMessage.h"
 
 #include <cassert>
+#include <stdexcept>
 #include <fcntl.h>
 #include <string.h>
 #include <sys/epoll.h>
