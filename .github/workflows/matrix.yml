@@ -247,10 +247,10 @@ jobs:
   # Mac builds on Catalina VM
   macos_build:
     name: macOS
-    runs-on: macOS-10.15
+    runs-on: macOS-11
     env:
-      CC: /usr/local/opt/llvm@8/bin/clang
-      CXX: /usr/local/opt/llvm@8/bin/clang++
+      CC: /usr/local/opt/llvm@11/bin/clang
+      CXX: /usr/local/opt/llvm@11/bin/clang++
       LABEL: osx
       CCACHE_DIR: $GITHUB_WORKSPACE/.ccache
     steps:
@@ -259,10 +259,9 @@ jobs:
       # Fetch Dependencies
       - name: Dependencies
         run: |
-          brew uninstall --force llvm
-          brew install --force boost llvm@8 ccache
-          brew link --overwrite llvm@8
-          ln -s /usr/local/opt/llvm@8 /usr/local/opt/llvm
+           brew install --force boost llvm@11 ccache
+           brew link --overwrite llvm@11
+           ln -s /usr/local/opt/llvm@11 /usr/local/opt/llvm
       - name: Retrieve ccache
         uses: actions/cache@v1
         with:

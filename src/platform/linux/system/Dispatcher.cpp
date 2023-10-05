@@ -16,6 +16,7 @@
 #include <sys/timerfd.h>
 #include <ucontext.h>
 #include <unistd.h>
+#include <pthread.h>
 
 namespace System
 {
