@@ -2,6 +2,7 @@
 #define STR(x) STR_HELPER(x)
 
 #define PROJECT_NAME "ZentCash"
+#define PROJECT_BUILDNAME "Mammón"
 #define PROJECT_SITE "https://www.zent.cash"
 #define PROJECT_COPYRIGHT "Copyright 2019-2023, The Zent Cash Developers"
 #define APP_VER_MAJOR 1
