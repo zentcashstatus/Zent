@@ -7,7 +7,7 @@
 
 #pragma once
 #ifndef ROCKSDB_LITE
-
+#include <stdint.h>
 #include <string>
 #include <vector>
 #include "rocksdb/status.h"

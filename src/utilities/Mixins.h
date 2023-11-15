@@ -6,6 +6,7 @@
 #pragma once
 
 #include <string>
+#include <stdint.h>
 #include <system_error>
 
 namespace Utilities

@@ -6,7 +6,7 @@
 #pragma once
 
 #include <cstddef>
-#include <stdexcept>
+#include <cstdint>
 #include <functional>
 #include <queue>
 #include <stack>

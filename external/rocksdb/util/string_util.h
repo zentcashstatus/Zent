@@ -5,7 +5,7 @@
 //
 
 #pragma once
-
+#include <stdint.h>
 #include <sstream>
 #include <string>
 #include <unordered_map>

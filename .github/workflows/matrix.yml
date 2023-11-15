@@ -140,15 +140,15 @@ jobs:
         build_name: ['Ubuntu 22.04 - GCC 11', 'Ubuntu 22.04 - Clang 11', 'Ubuntu 22.04 - aarch64']
         include:
           - build_name: 'Ubuntu 22.04 - GCC 11'
-            package_name: 'gcc-11 g++-11'
-            cc: gcc-11
-            cxx: g++-11
+            package_name: 'gcc-12 g++-12'
+            cc: gcc-12
+            cxx: g++-12
             label: ubuntu-22.04-linux
             deployable: false
           - build_name: 'Ubuntu 22.04 - Clang 11'
-            package_name: 'clang-11'
-            cc: clang-11
-            cxx: clang++-11
+            package_name: 'clang-12'
+            cc: clang-12
+            cxx: clang++-12
             label: ubuntu-22.04-linux-clang-11
             deployable: true
           - build_name: 'Ubuntu 22.04 - aarch64'
@@ -204,7 +204,7 @@ jobs:
           ${STRIP} ${TARGETS}
       # Test the crypto
       - name: Test Crypto
-        if: matrix.build_name != 'Ubuntu 22.04 - aarch64' && matrix.build_name != 'Ubuntu 22.04 - GCC 11'
+        if: matrix.build_name != 'Ubuntu 22.04 - aarch64'
         run: |
           cd build/src
           ./cryptotest      

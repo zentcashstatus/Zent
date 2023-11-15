@@ -6,6 +6,7 @@
 #pragma once
 
 #include <cassert>
+#include <stdint.h>
 #include <string>
 
 namespace Common

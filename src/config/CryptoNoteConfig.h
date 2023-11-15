@@ -192,6 +192,11 @@ namespace CryptoNote
 
         const uint64_t TRANSACTION_INPUT_BLOCKTIME_VALIDATION_HEIGHT = 1600000;
 
+        /* Coinbase transactions must include the recipient address + tx priv
+         * key in tx_extra to verify the outputs go to that address after this
+         * height. */
+        const uint64_t COINBASE_TRANSACTION_OUTPUT_CLAIMING_HEIGHT = 2800000;
+
         /* This describes how many blocks of "wiggle" room transactions have regarding
            when the outputs can be spent based on a reasonable belief that the outputs
            would unlock in the current block period */
@@ -379,12 +384,9 @@ namespace CryptoNote
         {0xc6, 0x1c, 0x4d, 0x6c, 0xcc, 0x12, 0x42, 0x9c, 0x33, 0xd6, 0x35, 0xa5, 0xee, 0xc1, 0x43, 0xd8}};
 
     const char *const SEED_NODES[] = {
-        "95.216.169.11:21688", // seedpro1.zent.cash
-        "95.216.191.56:21688", // seedpro2.zent.cash
-        "78.47.228.221:21688", // seedpro3.zent.cash
-        "superblockchain.con-ip.com:19051", // superblockchain.con-ip.com
-	"superblockchain.zapto.org:19051", // superblockchain.zapto.org
-	"superblockchain.con-ip.com:21597", // superblockchain.con-ip.com ARM
-        "superblockchain.zapto.org:21597", // superblockchain.zapto.org ARM
+        "superblockchain.con-ip.com:19051", 
+	"superblockchain.zapto.org:19051", 
+	"superblockchain.con-ip.com:21688", 
+        "superblockchain.zapto.org:21688",
     };
 } // namespace CryptoNote
