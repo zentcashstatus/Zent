@@ -25,10 +25,6 @@ For anyone else wishing to help the community or who needs answers to questions 
 
 [![Build](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml/badge.svg?branch=master)](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml)
 
-#### **Development**
-
-[![Build](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml/badge.svg?branch=dev)](https://github.com/ZentCashFoundation/Zent/actions/workflows/matrix.yml)
-
 ### Installing Zent Cash
 
 To use Zent Cash, you'll need a way to connect to the network, and a wallet to hold your funds. This software includes those things for you, you can compile it yourself, or you can download the ones that we have compiled for you.

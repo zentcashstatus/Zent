@@ -33,7 +33,15 @@ const std::string CN_SLOW_HASH_V2 = "871fcd6823f6a879bb3f33951c8e8e891d4043880b0
 
 const std::string CN_LITE_SLOW_HASH_V0 = "28a22bad3f93d1408fca472eb5ad1cbe75f21d053c8ce5b3af105a57713e21dd";
 
+const std::string CN_LITE_SLOW_HASH_V1 = "87c4e570653eb4c2b42b7a0d546559452dfab573b82ec52f152b7ff98e79446f";
+
 const std::string CN_LITE_SLOW_HASH_V2 = "b7e78fab22eb19cb8c9c3afe034fb53390321511bab6ab4915cd538a630c3c62";
+
+const std::string CN_DARK_SLOW_HASH_V0 = "bea42eadd78614f875e55bb972aa5ec54a5edf2dd7068220fda26bf4b1080fb8";
+
+const std::string CN_DARK_SLOW_HASH_V1 = "d18cb32bd5b465e5a7ba4763d60f88b5792f24e513306f1052954294b737e871";
+
+const std::string CN_DARK_SLOW_HASH_V2 = "a18a14d94efea108757a42633a1b4d4dc11838084c3c4347850d39ab5211a91f";
 
 const std::string CN_DARK_LITE_SLOW_HASH_V0 = "faa7884d9c08126eb164814aeba6547b5d6064277a09fb6b414f5dbc9d01eb2b";
 
@@ -45,67 +53,74 @@ const std::string CN_TURTLE_SLOW_HASH_V0 = "546c3f1badd7c1232c7a3b88cdb013f7f611
 
 const std::string CN_TURTLE_SLOW_HASH_V1 = "29e7831780a0ab930e0fe3b965f30e8a44d9b3f9ad2241d67cfbfea3ed62a64e";
 
+const std::string CN_TURTLE_SLOW_HASH_V2 = "fc67dfccb5fc90d7855ae903361eabd76f1e40a22a72ad3ef2d6ad27b5a60ce5";
+
 const std::string CN_TURTLE_LITE_SLOW_HASH_V0 = "5e1891a15d5d85c09baf4a3bbe33675cfa3f77229c8ad66c01779e590528d6d3";
 
 const std::string CN_TURTLE_LITE_SLOW_HASH_V1 = "ae7f864a7a2f2b07dcef253581e60a014972b9655a152341cb989164761c180a";
 
 const std::string CN_TURTLE_LITE_SLOW_HASH_V2 = "b2172ec9466e1aee70ec8572a14c233ee354582bcb93f869d429744de5726a26";
 
-const std::string CHUKWA = "c0dad0eeb9c52e92a1c3aa5b76a3cb90bd7376c28dce191ceeb1096e3a390d2e";
+const std::string CHUKWA_V1 = "c0dad0eeb9c52e92a1c3aa5b76a3cb90bd7376c28dce191ceeb1096e3a390d2e";
 
-const std::string CN_SOFT_SHELL_V0[] = {"5e1891a15d5d85c09baf4a3bbe33675cfa3f77229c8ad66c01779e590528d6d3",
-                                        "e1239347694df77cab780b7ec8920ec6f7e48ecef1d8c368e06708c08e1455f1",
-                                        "118a03801c564d12f7e68972419303fe06f7a54ab8f44a8ce7deafbc6b1b5183",
-                                        "8be48f7955eb3f9ac2275e445fe553f3ef359ea5c065cde98ff83011f407a0ec",
-                                        "d33da3541960046e846530dcc9872b1914a62c09c7d732bff03bec481866ae48",
-                                        "8be48f7955eb3f9ac2275e445fe553f3ef359ea5c065cde98ff83011f407a0ec",
-                                        "118a03801c564d12f7e68972419303fe06f7a54ab8f44a8ce7deafbc6b1b5183",
-                                        "e1239347694df77cab780b7ec8920ec6f7e48ecef1d8c368e06708c08e1455f1",
-                                        "5e1891a15d5d85c09baf4a3bbe33675cfa3f77229c8ad66c01779e590528d6d3",
-                                        "e1239347694df77cab780b7ec8920ec6f7e48ecef1d8c368e06708c08e1455f1",
-                                        "118a03801c564d12f7e68972419303fe06f7a54ab8f44a8ce7deafbc6b1b5183",
-                                        "8be48f7955eb3f9ac2275e445fe553f3ef359ea5c065cde98ff83011f407a0ec",
-                                        "d33da3541960046e846530dcc9872b1914a62c09c7d732bff03bec481866ae48",
-                                        "8be48f7955eb3f9ac2275e445fe553f3ef359ea5c065cde98ff83011f407a0ec",
-                                        "118a03801c564d12f7e68972419303fe06f7a54ab8f44a8ce7deafbc6b1b5183",
-                                        "e1239347694df77cab780b7ec8920ec6f7e48ecef1d8c368e06708c08e1455f1",
-                                        "5e1891a15d5d85c09baf4a3bbe33675cfa3f77229c8ad66c01779e590528d6d3"};
+const std::string CHUKWA_V2 = "3578c135261366a7bac407b8c0ff50f3ad96f096ec2813e9644e6e77a43f803d";
 
-const std::string CN_SOFT_SHELL_V1[] = {"ae7f864a7a2f2b07dcef253581e60a014972b9655a152341cb989164761c180a",
-                                        "ce8687bdd08c49bd1da3a6a74bf28858670232c1a0173ceb2466655250f9c56d",
-                                        "ddb6011d400ac8725995fb800af11646bb2fef0d8b6136b634368ad28272d7f4",
-                                        "02576f9873dc9c8b1b0fc14962982734dfdd41630fc936137a3562b8841237e1",
-                                        "d37e2785ab7b3d0a222940bf675248e7b96054de5c82c5f0b141014e136eadbc",
-                                        "02576f9873dc9c8b1b0fc14962982734dfdd41630fc936137a3562b8841237e1",
-                                        "ddb6011d400ac8725995fb800af11646bb2fef0d8b6136b634368ad28272d7f4",
-                                        "ce8687bdd08c49bd1da3a6a74bf28858670232c1a0173ceb2466655250f9c56d",
-                                        "ae7f864a7a2f2b07dcef253581e60a014972b9655a152341cb989164761c180a",
-                                        "ce8687bdd08c49bd1da3a6a74bf28858670232c1a0173ceb2466655250f9c56d",
-                                        "ddb6011d400ac8725995fb800af11646bb2fef0d8b6136b634368ad28272d7f4",
-                                        "02576f9873dc9c8b1b0fc14962982734dfdd41630fc936137a3562b8841237e1",
-                                        "d37e2785ab7b3d0a222940bf675248e7b96054de5c82c5f0b141014e136eadbc",
-                                        "02576f9873dc9c8b1b0fc14962982734dfdd41630fc936137a3562b8841237e1",
-                                        "ddb6011d400ac8725995fb800af11646bb2fef0d8b6136b634368ad28272d7f4",
-                                        "ce8687bdd08c49bd1da3a6a74bf28858670232c1a0173ceb2466655250f9c56d",
-                                        "ae7f864a7a2f2b07dcef253581e60a014972b9655a152341cb989164761c180a"};
+const std::string CN_SOFT_SHELL_V0[] = {
+    "5e1891a15d5d85c09baf4a3bbe33675cfa3f77229c8ad66c01779e590528d6d3",
+    "e1239347694df77cab780b7ec8920ec6f7e48ecef1d8c368e06708c08e1455f1",
+    "118a03801c564d12f7e68972419303fe06f7a54ab8f44a8ce7deafbc6b1b5183",
+    "8be48f7955eb3f9ac2275e445fe553f3ef359ea5c065cde98ff83011f407a0ec",
+    "d33da3541960046e846530dcc9872b1914a62c09c7d732bff03bec481866ae48",
+    "8be48f7955eb3f9ac2275e445fe553f3ef359ea5c065cde98ff83011f407a0ec",
+    "118a03801c564d12f7e68972419303fe06f7a54ab8f44a8ce7deafbc6b1b5183",
+    "e1239347694df77cab780b7ec8920ec6f7e48ecef1d8c368e06708c08e1455f1",
+    "5e1891a15d5d85c09baf4a3bbe33675cfa3f77229c8ad66c01779e590528d6d3",
+    "e1239347694df77cab780b7ec8920ec6f7e48ecef1d8c368e06708c08e1455f1",
+    "118a03801c564d12f7e68972419303fe06f7a54ab8f44a8ce7deafbc6b1b5183",
+    "8be48f7955eb3f9ac2275e445fe553f3ef359ea5c065cde98ff83011f407a0ec",
+    "d33da3541960046e846530dcc9872b1914a62c09c7d732bff03bec481866ae48",
+    "8be48f7955eb3f9ac2275e445fe553f3ef359ea5c065cde98ff83011f407a0ec",
+    "118a03801c564d12f7e68972419303fe06f7a54ab8f44a8ce7deafbc6b1b5183",
+    "e1239347694df77cab780b7ec8920ec6f7e48ecef1d8c368e06708c08e1455f1",
+    "5e1891a15d5d85c09baf4a3bbe33675cfa3f77229c8ad66c01779e590528d6d3"};
 
-const std::string CN_SOFT_SHELL_V2[] = {"b2172ec9466e1aee70ec8572a14c233ee354582bcb93f869d429744de5726a26",
-                                        "b2623a2b041dc5ae3132b964b75e193558c7095e725d882a3946aae172179cf1",
-                                        "141878a7b58b0f57d00b8fc2183cce3517d9d68becab6fee52abb3c1c7d0805b",
-                                        "4646f9919791c28f0915bc0005ed619bee31d42359f7a8af5de5e1807e875364",
-                                        "3fedc7ab0f8d14122fc26062de1af7a6165755fcecdf0f12fa3ccb3ff63629d0",
-                                        "4646f9919791c28f0915bc0005ed619bee31d42359f7a8af5de5e1807e875364",
-                                        "141878a7b58b0f57d00b8fc2183cce3517d9d68becab6fee52abb3c1c7d0805b",
-                                        "b2623a2b041dc5ae3132b964b75e193558c7095e725d882a3946aae172179cf1",
-                                        "b2172ec9466e1aee70ec8572a14c233ee354582bcb93f869d429744de5726a26",
-                                        "b2623a2b041dc5ae3132b964b75e193558c7095e725d882a3946aae172179cf1",
-                                        "141878a7b58b0f57d00b8fc2183cce3517d9d68becab6fee52abb3c1c7d0805b",
-                                        "4646f9919791c28f0915bc0005ed619bee31d42359f7a8af5de5e1807e875364",
-                                        "3fedc7ab0f8d14122fc26062de1af7a6165755fcecdf0f12fa3ccb3ff63629d0",
-                                        "4646f9919791c28f0915bc0005ed619bee31d42359f7a8af5de5e1807e875364",
-                                        "141878a7b58b0f57d00b8fc2183cce3517d9d68becab6fee52abb3c1c7d0805b",
-                                        "b2623a2b041dc5ae3132b964b75e193558c7095e725d882a3946aae172179cf1",
-                                        "b2172ec9466e1aee70ec8572a14c233ee354582bcb93f869d429744de5726a26"};
+const std::string CN_SOFT_SHELL_V1[] = {
+    "ae7f864a7a2f2b07dcef253581e60a014972b9655a152341cb989164761c180a",
+    "ce8687bdd08c49bd1da3a6a74bf28858670232c1a0173ceb2466655250f9c56d",
+    "ddb6011d400ac8725995fb800af11646bb2fef0d8b6136b634368ad28272d7f4",
+    "02576f9873dc9c8b1b0fc14962982734dfdd41630fc936137a3562b8841237e1",
+    "d37e2785ab7b3d0a222940bf675248e7b96054de5c82c5f0b141014e136eadbc",
+    "02576f9873dc9c8b1b0fc14962982734dfdd41630fc936137a3562b8841237e1",
+    "ddb6011d400ac8725995fb800af11646bb2fef0d8b6136b634368ad28272d7f4",
+    "ce8687bdd08c49bd1da3a6a74bf28858670232c1a0173ceb2466655250f9c56d",
+    "ae7f864a7a2f2b07dcef253581e60a014972b9655a152341cb989164761c180a",
+    "ce8687bdd08c49bd1da3a6a74bf28858670232c1a0173ceb2466655250f9c56d",
+    "ddb6011d400ac8725995fb800af11646bb2fef0d8b6136b634368ad28272d7f4",
+    "02576f9873dc9c8b1b0fc14962982734dfdd41630fc936137a3562b8841237e1",
+    "d37e2785ab7b3d0a222940bf675248e7b96054de5c82c5f0b141014e136eadbc",
+    "02576f9873dc9c8b1b0fc14962982734dfdd41630fc936137a3562b8841237e1",
+    "ddb6011d400ac8725995fb800af11646bb2fef0d8b6136b634368ad28272d7f4",
+    "ce8687bdd08c49bd1da3a6a74bf28858670232c1a0173ceb2466655250f9c56d",
+    "ae7f864a7a2f2b07dcef253581e60a014972b9655a152341cb989164761c180a"};
+
+const std::string CN_SOFT_SHELL_V2[] = {
+    "b2172ec9466e1aee70ec8572a14c233ee354582bcb93f869d429744de5726a26",
+    "b2623a2b041dc5ae3132b964b75e193558c7095e725d882a3946aae172179cf1",
+    "141878a7b58b0f57d00b8fc2183cce3517d9d68becab6fee52abb3c1c7d0805b",
+    "4646f9919791c28f0915bc0005ed619bee31d42359f7a8af5de5e1807e875364",
+    "3fedc7ab0f8d14122fc26062de1af7a6165755fcecdf0f12fa3ccb3ff63629d0",
+    "4646f9919791c28f0915bc0005ed619bee31d42359f7a8af5de5e1807e875364",
+    "141878a7b58b0f57d00b8fc2183cce3517d9d68becab6fee52abb3c1c7d0805b",
+    "b2623a2b041dc5ae3132b964b75e193558c7095e725d882a3946aae172179cf1",
+    "b2172ec9466e1aee70ec8572a14c233ee354582bcb93f869d429744de5726a26",
+    "b2623a2b041dc5ae3132b964b75e193558c7095e725d882a3946aae172179cf1",
+    "141878a7b58b0f57d00b8fc2183cce3517d9d68becab6fee52abb3c1c7d0805b",
+    "4646f9919791c28f0915bc0005ed619bee31d42359f7a8af5de5e1807e875364",
+    "3fedc7ab0f8d14122fc26062de1af7a6165755fcecdf0f12fa3ccb3ff63629d0",
+    "4646f9919791c28f0915bc0005ed619bee31d42359f7a8af5de5e1807e875364",
+    "141878a7b58b0f57d00b8fc2183cce3517d9d68becab6fee52abb3c1c7d0805b",
+    "b2623a2b041dc5ae3132b964b75e193558c7095e725d882a3946aae172179cf1",
+    "b2172ec9466e1aee70ec8572a14c233ee354582bcb93f869d429744de5726a26"};
 
 static inline bool CompareHashes(const Hash leftHash, const std::string right)
 {
@@ -139,7 +154,7 @@ void testHashFunction(
     std::string expectedOutput,
     std::string hashFunctionName,
     int64_t height,
-    Args &&... args)
+    Args &&...args)
 {
     const BinaryArray &rawData = Common::fromHex(INPUT_DATA);
 
@@ -378,7 +393,8 @@ int main(int argc, char **argv)
 
             Crypto::SecretKey privateEmpheremal("73a8e577d58f7c11992201d4014ac7eef39c1e9f6f6d78673103de60a0c3240b");
 
-            const auto [success, signatures, k] = Crypto::crypto_ops::prepareRingSignatures(txPrefixHash, keyImage, publicKeys, 3);
+            const auto [success, signatures, k] =
+                Crypto::crypto_ops::prepareRingSignatures(txPrefixHash, keyImage, publicKeys, 3);
 
             if (!success)
             {
@@ -656,7 +672,14 @@ int main(int argc, char **argv)
         std::cout << std::endl;
 
         TEST_HASH_FUNCTION(cn_lite_slow_hash_v0, CN_LITE_SLOW_HASH_V0);
+        TEST_HASH_FUNCTION(cn_lite_slow_hash_v1, CN_LITE_SLOW_HASH_V1);
         TEST_HASH_FUNCTION(cn_lite_slow_hash_v2, CN_LITE_SLOW_HASH_V2);
+
+        std::cout << std::endl;
+
+        TEST_HASH_FUNCTION(cn_dark_slow_hash_v0, CN_DARK_SLOW_HASH_V0);
+        TEST_HASH_FUNCTION(cn_dark_slow_hash_v1, CN_DARK_SLOW_HASH_V1);
+        TEST_HASH_FUNCTION(cn_dark_slow_hash_v2, CN_DARK_SLOW_HASH_V2);
 
         std::cout << std::endl;
 
@@ -668,6 +691,7 @@ int main(int argc, char **argv)
 
         TEST_HASH_FUNCTION(cn_turtle_slow_hash_v0, CN_TURTLE_SLOW_HASH_V0);
         TEST_HASH_FUNCTION(cn_turtle_slow_hash_v1, CN_TURTLE_SLOW_HASH_V1);
+        TEST_HASH_FUNCTION(cn_turtle_slow_hash_v2, CN_TURTLE_SLOW_HASH_V2);
 
         std::cout << std::endl;
 
@@ -677,9 +701,29 @@ int main(int argc, char **argv)
 
         std::cout << std::endl;
 
-        TEST_HASH_FUNCTION(chukwa_slow_hash, CHUKWA);
+        TEST_HASH_FUNCTION(chukwa_slow_hash_v1, CHUKWA_V1);
+        TEST_HASH_FUNCTION(chukwa_slow_hash_v2, CHUKWA_V2);
 
         std::cout << std::endl;
+
+        for (uint64_t height = 0; height <= 8192; height += 512)
+        {
+            TEST_HASH_FUNCTION_WITH_HEIGHT(cn_soft_shell_slow_hash_v0, CN_SOFT_SHELL_V0[height / 512], height);
+        }
+
+        std::cout << std::endl;
+
+        for (uint64_t height = 0; height <= 8192; height += 512)
+        {
+            TEST_HASH_FUNCTION_WITH_HEIGHT(cn_soft_shell_slow_hash_v1, CN_SOFT_SHELL_V1[height / 512], height);
+        }
+
+        std::cout << std::endl;
+
+        for (uint64_t height = 0; height <= 8192; height += 512)
+        {
+            TEST_HASH_FUNCTION_WITH_HEIGHT(cn_soft_shell_slow_hash_v2, CN_SOFT_SHELL_V2[height / 512], height);
+        }
 
         if (o_benchmark)
         {
@@ -693,7 +737,12 @@ int main(int argc, char **argv)
             BENCHMARK(cn_slow_hash_v2, o_iterations);
 
             BENCHMARK(cn_lite_slow_hash_v0, o_iterations);
+            BENCHMARK(cn_lite_slow_hash_v1, o_iterations);
             BENCHMARK(cn_lite_slow_hash_v2, o_iterations);
+
+            BENCHMARK(cn_dark_slow_hash_v0, o_iterations);
+            BENCHMARK(cn_dark_slow_hash_v1, o_iterations);
+            BENCHMARK(cn_dark_slow_hash_v2, o_iterations);
 
             BENCHMARK(cn_dark_lite_slow_hash_v0, o_iterations);
             BENCHMARK(cn_dark_lite_slow_hash_v1, o_iterations);
@@ -701,12 +750,14 @@ int main(int argc, char **argv)
 
             BENCHMARK(cn_turtle_slow_hash_v0, o_iterations_long);
             BENCHMARK(cn_turtle_slow_hash_v1, o_iterations_long);
+            BENCHMARK(cn_turtle_slow_hash_v2, o_iterations_long);
 
             BENCHMARK(cn_turtle_lite_slow_hash_v0, o_iterations_long);
             BENCHMARK(cn_turtle_lite_slow_hash_v1, o_iterations_long);
             BENCHMARK(cn_turtle_lite_slow_hash_v2, o_iterations_long);
 
-            BENCHMARK(chukwa_slow_hash, o_iterations_long);
+            BENCHMARK(chukwa_slow_hash_v1, o_iterations_long);
+            BENCHMARK(chukwa_slow_hash_v2, o_iterations_long);
         }
     }
     catch (std::exception &e)

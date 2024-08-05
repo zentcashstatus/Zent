@@ -195,7 +195,7 @@ namespace CryptoNote
         /* Coinbase transactions must include the recipient address + tx priv
          * key in tx_extra to verify the outputs go to that address after this
          * height. */
-        const uint64_t COINBASE_TRANSACTION_OUTPUT_CLAIMING_HEIGHT = 2800000;
+        const uint64_t COINBASE_TRANSACTION_OUTPUT_CLAIMING_HEIGHT = 28000000;
 
         /* This describes how many blocks of "wiggle" room transactions have regarding
            when the outputs can be spent based on a reasonable belief that the outputs
@@ -262,12 +262,12 @@ namespace CryptoNote
             2200000, // 14 - Minimum Fee Per Byte, Normal TX Max Output Count
             2400000, // 15 -  Free Space 
             2600000, // 16 -  Free Space
-            2800000, // 17 -  Free Space
-            3000000, // 18 -  Free Space
+            28000000, // 17 -  Coinbase Transaction Output Claiming
+            30000000, // 18 -  Free Space
         };
 
         /* MAKE SURE TO UPDATE THIS VALUE WITH EVERY MAJOR RELEASE BEFORE A FORK */
-        const uint64_t SOFTWARE_SUPPORTED_FORK_INDEX = 15;
+        const uint64_t SOFTWARE_SUPPORTED_FORK_INDEX = 17;
 
         const uint64_t FORK_HEIGHTS_SIZE = sizeof(FORK_HEIGHTS) / sizeof(*FORK_HEIGHTS);
 
@@ -321,7 +321,7 @@ namespace CryptoNote
             {BLOCK_MAJOR_VERSION_3, Crypto::cn_slow_hash_v0}, /* UPGRADE_HEIGHT_V3 */
             {BLOCK_MAJOR_VERSION_4, Crypto::cn_lite_slow_hash_v1}, /* UPGRADE_HEIGHT_V4 */
             {BLOCK_MAJOR_VERSION_5, Crypto::cn_turtle_lite_slow_hash_v2}, /* UPGRADE_HEIGHT_V5 */
-            {BLOCK_MAJOR_VERSION_6, Crypto::chukwa_slow_hash} /* UPGRADE_HEIGHT_V6 */
+            {BLOCK_MAJOR_VERSION_6, Crypto::chukwa_slow_hash_v1} /* UPGRADE_HEIGHT_V6 */
     };
 
     const size_t BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT = 10000; // by default, blocks ids count in synchronizing
@@ -340,9 +340,9 @@ namespace CryptoNote
 
     // P2P Network Configuration Section - This defines our current P2P network version
     // and the minimum version for communication between nodes
-    const uint8_t P2P_CURRENT_VERSION = 12;
+    const uint8_t P2P_CURRENT_VERSION = 13;
 
-    const uint8_t P2P_MINIMUM_VERSION = 11;
+    const uint8_t P2P_MINIMUM_VERSION = 12;
 
     // This defines the minimum P2P version required for lite blocks propogation
     const uint8_t P2P_LITE_BLOCKS_PROPOGATION_VERSION = 4;
@@ -384,8 +384,8 @@ namespace CryptoNote
         {0xc6, 0x1c, 0x4d, 0x6c, 0xcc, 0x12, 0x42, 0x9c, 0x33, 0xd6, 0x35, 0xa5, 0xee, 0xc1, 0x43, 0xd8}};
 
     const char *const SEED_NODES[] = {
-        "superblockchain.con-ip.com:19051", 
-	"superblockchain.zapto.org:19051", 
+        "138.124.183.11:21688",
+ 	"185.74.222.212:21688",
 	"superblockchain.con-ip.com:21688", 
         "superblockchain.zapto.org:21688",
     };
