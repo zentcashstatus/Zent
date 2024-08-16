@@ -27,9 +27,80 @@ For anyone else wishing to help the community or who needs answers to questions 
 
 ### Installing Zent Cash
 
-To use Zent Cash, you'll need a way to connect to the network, and a wallet to hold your funds. This software includes those things for you, you can compile it yourself, or you can download the ones that we have compiled for you.
+To use Zent Cash, you will need a way to connect to the network, and a wallet to store your funds. This software includes those things for you, you can compile it yourself, or you can download the ones we have compiled for you.
+Here is a script to download and run the Zent Daemon in an automated way.
 
-**Click here to download: http://latest.zent.cash**
+```bash
+#!/bin/bash
+set -e
+
+# Variables
+ZENT_VERSION="v1.28.4"
+ZENT_URL="https://github.com/ZentCashFoundation/Zent/releases/download/${ZENT_VERSION}/ZentCash-${ZENT_VERSION}-linux.tar.gz"
+INSTALL_DIR="/usr/local/bin"
+DOWNLOAD_DIR="/tmp/zentcash"
+
+# Create a temporary directory for download
+mkdir -p ${DOWNLOAD_DIR}
+cd ${DOWNLOAD_DIR}
+
+# Download and extract the ZentCash binary
+wget ${ZENT_URL}
+tar -xvf ZentCash-${ZENT_VERSION}-linux.tar.gz
+
+# Move the necessary binaries to the installation directory
+sudo mv ZentCash-${ZENT_VERSION}/Zentd ${INSTALL_DIR}
+sudo mv ZentCash-${ZENT_VERSION}/zentwallet ${INSTALL_DIR}
+sudo mv ZentCash-${ZENT_VERSION}/wallet-api ${INSTALL_DIR}
+sudo mv ZentCash-${ZENT_VERSION}/Zent-service ${INSTALL_DIR}
+
+# Clean up the temporary files
+cd /
+rm -rf ${DOWNLOAD_DIR}
+
+# Create necessary directories for data and logs
+sudo mkdir -p /datadir /app/logs /app/checkpoints
+
+# Change to root directory to avoid getcwd errors
+cd /
+
+# Install Node.js and PM2 if not already installed
+if ! command -v pm2 &> /dev/null
+then
+    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    sudo npm install -g pm2
+fi
+
+# Command to run Zentd
+ZENTD_CMD="${INSTALL_DIR}/Zentd \
+    --log-file /app/logs/zentcashd.log \
+    --log-level 2 \
+    --data-dir /datadir \
+    --db-max-open-files 100 \
+    --db-read-buffer-size 10 \
+    --db-threads 8 \
+    --db-write-buffer-size 512 \
+    --allow-local-ip false \
+    --hide-my-port false \
+    --p2p-bind-ip 0.0.0.0 \
+    --p2p-bind-port 21688 \
+    --rpc-bind-ip 127.0.0.1 \
+    --rpc-bind-port 21698 \
+    --enable-blockexplorer false \
+    --enable-cors '*' \
+    --fee-address Ze3eeYHXfJH2SaghicPsKgdP6HC5ehZHe4uRCmi92rpTYRhS6oSeu6E4QKzodiSHTgNf9Yks743cteLQ875Pfnny2GfV2ihDq \
+    --fee-amount 0"
+
+# Start Zentd with PM2 without using ecosystem file
+pm2 start bash --name zentd -- -c "${ZENTD_CMD}"
+
+# Configure PM2 to start on boot and save the current configuration
+pm2 startup
+pm2 save
+
+echo "Zentd is running under PM2 with the configured parameters."
+```
 
 To compile from sourcecode yourself, [click here for build instructions](https://github.com/ZentCashFoundation/Zent/blob/dev/COMPILE.md).
 
